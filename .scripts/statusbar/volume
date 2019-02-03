@@ -1,0 +1,26 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) setsid "$TERMINAL" -e amixer & ;;
+	2) amixer -q set Master toggle ;;
+	4) amixer -q set Master 5%- ;;
+	5) amixer -q set Master 5%+ ;;
+	3) pgrep -x dunst >/dev/null && notify-send "<b>📢 Volume module:</b>
+- Shows volume 🔊, 🔇 if muted.
+- Middle click to mute.
+- Scroll to change."
+esac
+
+[ "$(amixer sget Master | grep 'Right: ' | awk -F'[][%]' '{ print $5 }')" = "off" ] && printf "🔇\\n" && exit
+
+vol=$(amixer sget Master | grep 'Right: ' | awk -F'[][%]' '{ print $2 }')
+
+if [ "$vol" -gt "70" ]; then
+	icon="🔊"
+elif [ "$vol" -lt "30" ]; then
+	icon="🔈"
+else
+	icon="🔉"
+fi
+
+printf "%s %s%%\\n" "$icon" "$vol"

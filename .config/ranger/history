@@ -1,0 +1,13 @@
+open_with 
+open_with xdbg-open &
+search
+delete!
+d
+D
+delete 
+search *.iso
+search iso
+deletee
+delete
+search mp4
+search 

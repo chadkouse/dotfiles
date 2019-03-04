@@ -1,0 +1,17 @@
+nnoremap "n" "<down>"
+nnoremap "e" "<up>"
+nnoremap " " "<right>"
+nnoremap "k" "n"
+nnoremap "K" "N"
+nnoremap "i" "e"
+nnoremap "I" "E"
+
+nnoremap "ac" "ic"
+nnoremap "ar" "ir"
+
+#set autocalc
+#set numeric
+#set numeric_decimal=0
+#set overlap
+#set xlsx_readformulas
+

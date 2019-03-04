@@ -35,3 +35,7 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')"
 export TERMINAL=tilix
 export BROWSER=google-chrome
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
+
+if [ -e ~/.secrets ]; then
+  source ~/.secrets
+fi

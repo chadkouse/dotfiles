@@ -1,0 +1,5 @@
+#!/bin/bash
+
+killall compton
+flatpak run org.deepin.flatdeb.deepin-screenshot
+compton -b --config /home/chadkouse/.config/compton.conf

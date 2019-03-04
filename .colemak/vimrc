@@ -1,0 +1,10 @@
+" " colemak
+" set langmap=sd,fe,tf,dg,ui,nj,ek,il,kn,yo,\\;p,pr,rs,gt,lu,jy,SD,FE,TF,DG,UI,NJ,EK,IL,KN,YO,:P,PR,RS,GT,LU,JY,o\\;,O:
+
+" rotate some keys about to get qwerty "hjkl" back for movement
+"map n <down>
+noremap n <down>
+noremap e <up>
+" map i <right>
+noremap k n
+noremap K N

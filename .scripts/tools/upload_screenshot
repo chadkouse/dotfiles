@@ -1,0 +1,24 @@
+#!/bin/bash
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+bucketname="adkocdn"
+path="/s/"
+
+function u2b {
+  v=$(date +%s)
+  BASE62=($(echo {0..9} {a..z} {A..Z}))
+  for i in $(bc <<< "obase=62; $v"); do echo -n ${BASE62[$(( 10#$i ))]}
+  done
+}
+r=$(u2b)
+
+filename=$(basename -- "$1")
+ext="${filename##*.}"
+
+url=`/home/chadkouse/.local/bin/s3cmd -d -v put --acl-public "$1" "s3://$bucketname$path$r.$ext" | grep "Public URL" | cut -d ':' -f 2-`
+surl="${url/http:/https:}"
+
+echo $surl | xsel -b
+notify-send --hint=int:transient:1 "Screenshot URL Copied to clipboard"

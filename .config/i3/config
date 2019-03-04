@@ -25,7 +25,7 @@ gaps outer 0
 exec_always --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
 
 # Unclutter makes the mouse invisible after a brief period
-exec --no-startup-id unclutter
+#exec --no-startup-id unclutter
 
 # Setting the background:
 exec_always --no-startup-id /home/chadkouse/.scripts/tools/setbg
@@ -42,6 +42,9 @@ exec --no-startup-id "compton -b --config /home/chadkouse/.config/compton.conf"
 
 # rofi
 bindsym Mod1+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
+
+# passmenu
+bindsym $mod+p exec --no-startup-id "passmenu"
 
 
 # Set Xresources colors:
@@ -256,10 +259,10 @@ mode "resize" {
         bindsym $mod+p mode "default"
 }
 
-bindsym $mod+p mode "resize"
+#bindsym $mod+p mode "resize"
 
 #for screenshots
-bindsym Print       exec --no-startup-id flatpak run org.deepin.flatdeb.deepin-screenshot
+bindsym Print       exec --no-startup-id take_screenshot
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

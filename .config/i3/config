@@ -7,13 +7,6 @@
 
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-# caps lock to escape
-exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
-# set keyboard repeat delay / rate
-exec_always --no-startup-id xset r rate 200 35
-
 
 # #---Basic Definitions---# #
 # Needed for i3-gaps

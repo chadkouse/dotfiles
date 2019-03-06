@@ -9,6 +9,3 @@ if [ -e ~/.secrets ]; then
   source ~/.secrets
 fi
 
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-

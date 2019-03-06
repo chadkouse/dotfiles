@@ -1,19 +1,19 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	1) setsid "$TERMINAL" -e amixer & ;;
-	2) amixer -q set Master toggle ;;
-	4) amixer -q set Master 5%- ;;
-	5) amixer -q set Master 5%+ ;;
+	1) setsid "$TERMINAL" -e pulsemixer & ;;
+	2) pulsemixer --toggle-mute ;;
+	4) pulsemixer --change-volume -5 ;;
+	5) pulsemixer --change-volume +5 ;;
 	3) pgrep -x dunst >/dev/null && notify-send "<b>📢 Volume module:</b>
 - Shows volume 🔊, 🔇 if muted.
 - Middle click to mute.
 - Scroll to change."
 esac
 
-[ "$(amixer sget Master | grep 'Right: ' | awk -F'[][%]' '{ print $5 }')" = "off" ] && printf "🔇\\n" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "🔇\\n" && exit
 
-vol=$(amixer sget Master | grep 'Right: ' | awk -F'[][%]' '{ print $2 }')
+vol=$(pulsemixer --get-volume | awk '{print $1}')
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"

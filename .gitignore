@@ -2,3 +2,8 @@
 .fonts/noto
 .aws
 **/**/*.log
+
+.config/mpd/database
+.config/mpd/log
+.config/mpd/pid
+.config/mpd/sticker.sql

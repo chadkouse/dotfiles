@@ -2,6 +2,10 @@ command=~/.scripts/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[torrent]
+interval=20
+signal=7
+
 [weather]
 interval=3600
 signal=5

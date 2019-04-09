@@ -1,21 +1,82 @@
-!! The default colors are "Gruvbox":
-*.color0: #1d2021
-*.color1: #cc241d
-*.color2: #98971a
-*.color3: #d79921
-*.color4: #458588
-*.color5: #b16286
-*.color6: #689d6a
-*.color7: #a89984
-*.color8: #928374
-*.color9: #fb4934
-*.color10: #b8bb26
-*.color11: #fabd2f
-*.color12: #83a598
-*.color13: #d3869b
-*.color14: #8ec07c
-*.color15: #ebdbb2
-!! Transparency (0-255):
-st.alpha: 230
-!! Set a default font and font size as below:
-!! *.font: Monospace-14;
+URxvt*font:			-*-tamzenforpowerline-medium-r-*-*-14-*-*-*-*-*-*-*,\
+				xft:Material Design Icons:size=6:antialiasing=false,\
+				xft:Symbola:size=14:antialiasing=false
+URxvt*boldFont:			-*-tamzenforpowerline-bold-r-*-*-14-*-*-*-*-*-*-*
+URxvt*italicFont:		-*-tamzenforpowerline-medium-i-*-*-14-*-*-*-*-*-*-*
+URxvt*boldItalicFont:		-*-tamzenforpowerline-bold-i-*-*-14-*-*-*-*-*-*-*
+URxvt*intensityStyles:		false
+URxvt*urgentOnBell:		true
+URxvt*saveLines:		9999
+URxvt*scrollBar:		false
+URxvt*scrollTtyOutput:		false
+URxvt*scrollWithBuffer:		true
+URxvt*scrollTtyKeypress:	true
+URxvt*internalBorder:		14
+URxvt*cursorBlink:		true
+URxvt*cursorUnderline:		false
+URxvt*pointerBlank:		true
+URxvt*secondaryScreen:		true
+URxvt*secondaryScroll:		false
+URxvt*depth:			32
+URxvt*perl-ext-common:		default,matcher,clipboard,url-select,keyboard-select,vtwheel,fullscreen
+URxvt*url-select.launcher:	/usr/bin/xdg-open
+URxvt*url-select.underline:	true
+URxvt*url-launcher:		/usr/bin/xdg-open
+URxvt*matcher.button:		1
+URxvt*keysym.C-A-c:		perl:clipboard:copy
+URxvt*keysym.C-A-v:		perl:clipboard:paste
+URxvt*keysym.M-u:		perl:url-select:select_next
+URxvt*keysym.M-Escape:		perl:keyboard-select:activate
+URxvt*keysym.M-s:		perl:keyboard-select:search
+URxvt*keysym.Home:		\033[1~
+URxvt*keysym.End:		\033[4~
+URxvt*keysym.KP_Home:		\033[1~
+URxvt*keysym.KP_End:		\033[4~
+URxvt*keysym.F11:		perl:fullscreen:switch
+URxvt*iso14755:			false
+
+Xft.dpi:			96
+
+Xft.autohint:			0
+Xft.lcdfilter:			lcddefault
+Xft.hintstyle:			hintfull
+Xft.hinting:			1
+Xft.antialias:			1
+Xft.rgba:			rgb
+
+! special
+*.foreground:   #e5e5e5
+*.background:   #383838
+*.cursorColor:  #e5e5e5
+
+! black
+*.color0:       #000000
+*.color8:       #7e7e7e
+
+! red
+*.color1:       #ac4142
+*.color9:       #bc6667
+
+! green
+*.color2:       #90a959
+*.color10:      #a6ba7a
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f6cb90
+
+! blue
+*.color4:       #6a9fb5
+*.color12:      #87b2c3
+
+! magenta
+*.color5:       #aa759f
+*.color13:      #bb90b2
+
+! cyan
+*.color6:       #75b5aa
+*.color14:      #90c3bb
+
+! white
+*.color7:       #e5e5e5
+*.color15:      #eaeaea

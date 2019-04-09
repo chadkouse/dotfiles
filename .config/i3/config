@@ -9,6 +9,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # #---Basic Definitions---# #
+set $term --no-startup-id $TERMINAL
+
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
 gaps inner 0
@@ -265,3 +267,7 @@ bindsym Print       exec --no-startup-id take_screenshot
 
 # Bindings to make peek float
 for_window [title="Peek"] floating enable
+
+# Binding for ncmpcpp
+bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+Shift+m		exec --no-startup-id lmc mute

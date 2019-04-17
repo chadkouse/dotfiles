@@ -2,6 +2,16 @@ command=~/.scripts/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[music]
+label=🎼
+interval=once
+signal=11
+
+[pacpackages]
+label=📦
+interval=once
+signal=8
+
 [torrent]
 interval=20
 signal=7

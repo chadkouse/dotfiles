@@ -35,6 +35,12 @@ exec --no-startup-id "compton -b --config /home/chadkouse/.config/compton.conf"
 # start albert
 #exec --no-startup-id albert
 
+#start mopidy
+exec --no-startup-id /usr/bin/mopidy
+
+#monitor mpd
+exec_always --no-startup-id mpdupdate
+
 # rofi
 bindsym Mod1+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
 
@@ -271,3 +277,11 @@ for_window [title="Peek"] floating enable
 # Binding for ncmpcpp
 bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
+
+# Binding for mpc
+bindsym $mod+Print  exec --no-startup-id mpc prev
+bindsym $mod+Scroll_Lock  exec --no-startup-id mpc toggle
+bindsym $mod+Pause  exec --no-startup-id mpc next
+bindsym $mod+Shift+Print  exec --no-startup-id mpc seek -30
+bindsym $mod+Shift+Pause  exec --no-startup-id mpc seek +30
+

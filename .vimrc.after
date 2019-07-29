@@ -1,3 +1,5 @@
+Plugin 'zxqfl/tabnine-vim'
+
 unmap <Space>
 
 source ~/.colemak/vimrc

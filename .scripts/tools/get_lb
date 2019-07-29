@@ -1,0 +1,6 @@
+#!/bin/bash
+DOMAIN=$2
+SUB=$1
+ID=`aws route53 list-hosted-zones-by-name --dns-name $DOMAIN --max-items 1 --profile gci | grep "\"Id\"" | awk '{print $2}' | sed 's/\"\/hostedzone\///g'| sed 's/\",//g'`
+
+aws route53 list-resource-record-sets --hosted-zone-id $ID --query "ResourceRecordSets[?Name == '$SUB.$DOMAIN.']" --profile gci

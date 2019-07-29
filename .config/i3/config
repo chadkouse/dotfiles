@@ -17,8 +17,8 @@ gaps inner 0
 gaps outer 0
 
 # set natural scrolling o
-exec_always --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop 9 'Evdev Scrolling Distance' -1 1 1
+exec_always --no-startup-id xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop 10 'Evdev Scrolling Distance' -1 1 1
 
 # Unclutter makes the mouse invisible after a brief period
 #exec --no-startup-id unclutter
@@ -42,6 +42,8 @@ exec --no-startup-id /usr/bin/mopidy
 
 #monitor mpd
 exec_always --no-startup-id mpdupdate
+
+set $mod Mod4
 
 # rofi
 bindsym Mod1+space exec --no-startup-id "rofi -combi-modi window,drun -show combi"
@@ -94,7 +96,6 @@ bar {
 }
 
 
-set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

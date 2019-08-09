@@ -10,7 +10,6 @@ call vundle#end()
 filetype plugin indent on
 
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
 if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
@@ -113,5 +112,7 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-" ================ Colemak =========================
-source ~/.colemak/vimrc
+" source ~/.vimrc.after if it exists.
+if filereadable(expand("~/.vimrc.after"))
+  source ~/.vimrc.after
+endif

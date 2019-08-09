@@ -1,6 +1,5 @@
-Plugin 'zxqfl/tabnine-vim'
 
-unmap <Space>
+" unmap <Space>
 
 source ~/.colemak/vimrc
 
@@ -10,6 +9,6 @@ set shell=/usr/bin/zsh\ -l
 endif
 
 let g:yadr_disable_solarized_enhancements = 1
-colorscheme base16-twilight
+" colorscheme base16-twilight
 
 set rnu

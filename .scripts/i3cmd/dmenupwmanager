@@ -1,0 +1,5 @@
+#!/bin/sh
+# SNIP=`pass snippets| dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n'`
+SNIP=`cat ~/.snippets| dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n'`
+echo $SNIP | tr -d '\n' | xclip -selection clipboard
+xdotool key alt+v

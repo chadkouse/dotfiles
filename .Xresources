@@ -37,7 +37,7 @@ URxvt*iso14755:			false
 
 Xft.dpi:			96
 
-Xft.autohint:			0
+Xft.autohint:			1
 Xft.lcdfilter:			lcddefault
 Xft.hintstyle:			hintfull
 Xft.hinting:			1

@@ -116,7 +116,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilix
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -236,6 +236,7 @@ bindsym $mod+l      exec --no-startup-id lockscreen
 bindsym $mod+w      exec --no-startup-id $BROWSER
 bindsym $mod+F11    exec --no-startup-id googlesearch
 bindsym $mod+grave  exec --no-startup-id dmenuunicode
+bindsym Mod1+semicolon  exec --no-startup-id dmenupwmanager
 bindsym $mod+Shift+T      exec --no-startup-id gciticket
 
 # resize window (you can also use the mouse for that)

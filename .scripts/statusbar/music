@@ -1,7 +1,7 @@
 #!/bin/sh
 
 filter() {
-	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<\\/span><span color=\"gray\" font_style=\"italic\"> \\[Paused\\]/g;s/\\[playing\\] [0-9#\\/]* \(.*\)/<\\/span><span>\\1/g" | tac | tr -d '\n' | sed -e "s/^/<span>/g" | sed -e "s/$/<\\/span>\n/g"
+	sed "/^volume:/d" | tac | sed -e "s/\\&/&amp;/g;s/\\[paused\\].*/<\\/span><span color=\"gray\" font_style=\"italic\"> \\[Paused\\]/g;s/\\[playing\\] [0-9#\\/]*\(.*\)/<\\/span><span>\\1/g" | tac | tr -d '\n' | sed -e "s/^/<span>/g" | sed -e "s/$/<\\/span>\n/g"
 	}
 
 case $BLOCK_BUTTON in

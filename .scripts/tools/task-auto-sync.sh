@@ -14,6 +14,7 @@ done
 
 if (($n > 0)); then
     task sync >> ~/.task/sync_hook.log
+    pkill -RTMIN+14 dwmblocks
 fi
 
 exit 0

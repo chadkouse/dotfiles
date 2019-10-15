@@ -38,10 +38,10 @@ exec --no-startup-id "compton -b --config /home/chadkouse/.config/compton.conf"
 #exec --no-startup-id albert
 
 #start mopidy
-exec --no-startup-id /usr/bin/mopidy
+# exec --no-startup-id /usr/bin/mopidy
 
 #monitor mpd
-exec_always --no-startup-id mpdupdate
+# exec_always --no-startup-id mpdupdate
 
 set $mod Mod4
 

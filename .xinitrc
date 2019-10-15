@@ -5,6 +5,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export XDG_CONFIG_HOME=$HOME/.config
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -35,8 +38,11 @@ fi
 setxkbmap us -variant colemak
 setxkbmap -option caps:escape
 
+# bind keys
+sxhkd &
+
 # set keyboard repeat delay / rate
 xset r rate 200 35
 
-
-exec i3
+# exec i3
+exec dwm

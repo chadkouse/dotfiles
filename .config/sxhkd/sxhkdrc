@@ -9,7 +9,7 @@ super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
 super + w
 	$BROWSER
-super + m
+super + shift + m
 	$TERMINAL -e ncmpcpp
 alt + semicolon
 	dmenupwmanager

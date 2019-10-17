@@ -13,8 +13,8 @@ set $term --no-startup-id $TERMINAL
 
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 0
-gaps outer 0
+#gaps inner 0
+#gaps outer 0
 
 # set natural scrolling o
 exec_always --no-startup-id xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
@@ -289,3 +289,6 @@ bindsym $mod+Pause  exec --no-startup-id mpc next
 bindsym $mod+Shift+Print  exec --no-startup-id mpc seek -30
 bindsym $mod+Shift+Pause  exec --no-startup-id mpc seek +30
 
+bindsym XF86AudioMute exec amixer sset 'Master' toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+ && pkill -RTMIN+10 i3blocks

@@ -44,5 +44,7 @@ sxhkd &
 # set keyboard repeat delay / rate
 xset r rate 200 35
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 # exec i3
 exec dwm

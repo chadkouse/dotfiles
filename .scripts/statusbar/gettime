@@ -1,6 +1,6 @@
 #!/bin/bash
-HOUR=`date "+%I"`
-MINUTE=`date "+%M"`
+HOUR=`date "+%_I"`
+MINUTE=`date "+%_M"`
 DATE=`date '+%Y %b %d (%a) %I:%M:%S%p'`
 if [ "$MINUTE" -gt 29 ]; then
   SUFFIX=$(($HOUR + 1371))

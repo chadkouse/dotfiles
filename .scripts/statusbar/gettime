@@ -1,0 +1,13 @@
+#!/bin/bash
+HOUR=`date "+%_I"`
+MINUTE=`date "+%_M"`
+DATE=`date '+%Y %b %d (%a) %I:%M:%S%p'`
+if [ "$MINUTE" -gt 29 ]; then
+  SUFFIX=$(($HOUR + 1371))
+else
+  SUFFIX=$(($HOUR + 1359))
+fi
+SUFFIX=`printf '%x\n' $SUFFIX`
+ICON="\U0001F$SUFFIX"
+CLOCK=`echo -e "$ICON"`
+echo "$CLOCK $DATE"

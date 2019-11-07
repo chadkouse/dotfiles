@@ -1,35 +1,78 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
+Plug 'zxqfl/tabnine-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'beautify-web/js-beautify'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'majutsushi/tagbar'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mbbill/undotree'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
-Plugin 'zxqfl/tabnine-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'beautify-web/js-beautify'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" unmap <Space>
+call plug#end()
 
 source ~/.colemak/vimrc
+
+set tags+=./.git/tags
+
+" Use 4 spaces instead of tabs
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " use login shell instead of interactive shell
 if executable('zsh')
 set shell=/usr/bin/zsh\ -l
 endif
 
-let g:yadr_disable_solarized_enhancements = 1
-" colorscheme base16-twilight
-
+set mmp=5000
+set redrawtime=10000
 set rnu
 syntax on
 colo zellner
+
+" autoread and autowrite
+augroup save
+	au!
+	au FocusLost * wall
+augroup END
+set nohidden
+set nobackup
+set noswapfile
+set nowritebackup
+set autoread
+set autowrite
+set autowriteall
+au FocusGained,BufEnter * :silent! !
+au FocusLost,WinLeave * :silent! w
+
+" persistent undo
+set undodir=~/.vim/undo
+set undofile
+
+" case insensitive search
+set ignorecase
+set smartcase
+
+" turn off line wrapping
+set wrap!
+
+" show cursor line
+set cursorline
+highlight CursorLine term=bold cterm=bold guibg=Grey40
+
+" show color column at 80 chars
+highlight ColorColumn ctermbg=darkgrey ctermfg=white
+set colorcolumn=80
+

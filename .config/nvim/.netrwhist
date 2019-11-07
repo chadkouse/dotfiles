@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/chadkouse/src/github.com/chadkouse/webwrapprod'
+let g:netrw_dirhist_8='/home/chadkouse/src/github.com/webhub-inc/webwrap-react'
+let g:netrw_dirhist_7='/home/chadkouse/src/github.com/giftcardimpressions/magento'
+let g:netrw_dirhist_6='/home/chadkouse/src/github.com/giftcardimpressions/magento/app/code/local/GCI/Bestbuypaymentmethod/Helper'
+let g:netrw_dirhist_5='/home/chadkouse/src/github.com/giftcardimpressions/magento/app/code/local/GCI/Bestbuypaymentmethod'
+let g:netrw_dirhist_4='/home/chadkouse/src/github.com/giftcardimpressions/magento/app/code/local/GCI'
+let g:netrw_dirhist_3='/home/chadkouse/src/github.com/giftcardimpressions/magento/app/code/local'
+let g:netrw_dirhist_2='/home/chadkouse/src/github.com/giftcardimpressions/magento/app/code'
+let g:netrw_dirhist_1='/home/chadkouse/src/github.com/giftcardimpressions/magento/app'
+let g:netrw_dirhist_0='/home/chadkouse/src/github.com/giftcardimpressions/magento'

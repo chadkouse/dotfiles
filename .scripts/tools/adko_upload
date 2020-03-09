@@ -1,0 +1,4 @@
+#!/bin/bash
+FILE=$1
+aws s3 cp $FILE s3://adkocdn/s/ --acl=public-read --profile=adko
+echo "https://s3.amazonaws.com/adkocdn/s/$FILE"

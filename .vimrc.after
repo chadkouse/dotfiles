@@ -2,12 +2,15 @@ set nocompatible              " be iMproved, required
 
 call plug#begin('~/.vim/plugged')
 Plug 'zxqfl/tabnine-vim'
+Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'beautify-web/js-beautify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
+Plug 'digitaltoad/vim-pug'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -28,6 +31,8 @@ source ~/.colemak/vimrc
 
 set tags+=./.git/tags
 
+set termguicolors
+
 " Use 4 spaces instead of tabs
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
@@ -40,7 +45,10 @@ set mmp=5000
 set redrawtime=10000
 set rnu
 syntax on
-colo zellner
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_invert_selection = '0'
+set background=dark
 
 " autoread and autowrite
 augroup save
@@ -70,9 +78,10 @@ set wrap!
 
 " show cursor line
 set cursorline
-highlight CursorLine term=bold cterm=bold guibg=Grey40
+" highlight CursorLine term=bold cterm=bold
 
 " show color column at 80 chars
-highlight ColorColumn ctermbg=darkgrey ctermfg=white
+" highlight ColorColumn ctermbg=darkgrey ctermfg=white
 set colorcolumn=80
 
+hi Normal ctermbg=NONE guibg=NONE

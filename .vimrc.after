@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 
 call plug#begin('~/.vim/plugged')
 Plug 'zxqfl/tabnine-vim'
+Plug 'jreybert/vimagit'
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'beautify-web/js-beautify'
@@ -11,6 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'digitaltoad/vim-pug'
+Plug 'tpope/vim-commentary'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }

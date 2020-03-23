@@ -9,3 +9,5 @@ if [ -e ~/.secrets ]; then
   source ~/.secrets
 fi
 
+xset r rate 200 50
+

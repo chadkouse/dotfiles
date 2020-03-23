@@ -15,4 +15,5 @@ case $BLOCK_BUTTON in
 esac
 
 
-pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g"
+COUNT=$(pacman -Qu | grep -v "\[ignored\]" | wc -l | sed -e "s/^0$//g")
+echo "📦 $COUNT"

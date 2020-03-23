@@ -1,8 +1,8 @@
 #!/bin/bash
-vlc rtsp://admin:cheddar526@10.0.1.44:554 &
-vlc rtsp://admin:cheddar526@10.0.1.31:554 &
-vlc rtsp://admin:cheddar526@10.0.1.40:554 &
-vlc rtsp://admin:cheddar526@10.0.1.54:554 &
-vlc rtsp://appagent:streaming@10.0.1.67:554 &
-vlc rtsp://appagent:streaming@10.0.1.68:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.44:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.31:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.40:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.54:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.67:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.68:554 &
 

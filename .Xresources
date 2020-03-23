@@ -1,42 +1,4 @@
-URxvt*font:			-*-tamzenforpowerline-medium-r-*-*-14-*-*-*-*-*-*-*,\
-				xft:Material Design Icons:size=6:antialiasing=false,\
-				xft:Symbola:size=14:antialiasing=false
-URxvt*boldFont:			-*-tamzenforpowerline-bold-r-*-*-14-*-*-*-*-*-*-*
-URxvt*italicFont:		-*-tamzenforpowerline-medium-i-*-*-14-*-*-*-*-*-*-*
-URxvt*boldItalicFont:		-*-tamzenforpowerline-bold-i-*-*-14-*-*-*-*-*-*-*
-URxvt*intensityStyles:		false
-URxvt*urgentOnBell:		true
-URxvt*saveLines:		9999
-URxvt*scrollBar:		false
-URxvt*scrollTtyOutput:		false
-URxvt*scrollWithBuffer:		true
-URxvt*scrollTtyKeypress:	true
-URxvt*internalBorder:		14
-URxvt*cursorBlink:		true
-URxvt*cursorUnderline:		false
-URxvt*pointerBlank:		true
-URxvt*secondaryScreen:		true
-URxvt*secondaryScroll:		false
-URxvt*depth:			32
-URxvt*perl-ext-common:		default,matcher,clipboard,url-select,keyboard-select,vtwheel,fullscreen
-URxvt*url-select.launcher:	/usr/bin/xdg-open
-URxvt*url-select.underline:	true
-URxvt*url-launcher:		/usr/bin/xdg-open
-URxvt*matcher.button:		1
-URxvt*keysym.C-A-c:		perl:clipboard:copy
-URxvt*keysym.C-A-v:		perl:clipboard:paste
-URxvt*keysym.M-u:		perl:url-select:select_next
-URxvt*keysym.M-Escape:		perl:keyboard-select:activate
-URxvt*keysym.M-s:		perl:keyboard-select:search
-URxvt*keysym.Home:		\033[1~
-URxvt*keysym.End:		\033[4~
-URxvt*keysym.KP_Home:		\033[1~
-URxvt*keysym.KP_End:		\033[4~
-URxvt*keysym.F11:		perl:fullscreen:switch
-URxvt*iso14755:			false
-
 Xft.dpi:			96
-
 Xft.autohint:			1
 Xft.lcdfilter:			lcddefault
 Xft.hintstyle:			hintfull
@@ -44,34 +6,36 @@ Xft.hinting:			1
 Xft.antialias:			1
 Xft.rgba:			rgb
 
-! hard contrast: *background: #1d2021
-*background: #282828
-! soft contrast: *background: #32302f
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
-! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
-! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+/* ! hard contrast: *background: #1d2021 */
+/* *background: #282828 */
+/* ! soft contrast: *background: #32302f */
+/* *foreground: #ebdbb2 */
+/* ! Black + DarkGrey */
+/* *color0:  #282828 */
+/* *color8:  #928374 */
+/* ! DarkRed + Red */
+/* *color1:  #cc241d */
+/* *color9:  #fb4934 */
+/* ! DarkGreen + Green */
+/* *color2:  #98971a */
+/* *color10: #b8bb26 */
+/* ! DarkYellow + Yellow */
+/* *color3:  #d79921 */
+/* *color11: #fabd2f */
+/* ! DarkBlue + Blue */
+/* *color4:  #458588 */
+/* *color12: #83a598 */
+/* ! DarkMagenta + Magenta */
+/* *color5:  #b16286 */
+/* *color13: #d3869b */
+/* ! DarkCyan + Cyan */
+/* *color6:  #689d6a */
+/* *color14: #8ec07c */
+/* ! LightGrey + White */
+/* *color7:  #a89984 */
+/* *color15: #ebdbb2 */
+/* *color256: #1d2021 */
+/* *color257: #ebdbb2 */
+/* *cursorColor: #00ff00 */
 
-*color256: #1d2021
-*color257: #ebdbb2
+*.alpha: 0.8

@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'digitaltoad/vim-pug'
 Plug 'tpope/vim-commentary'
+Plug 'mhinz/vim-startify'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }

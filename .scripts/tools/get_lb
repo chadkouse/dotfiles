@@ -1,6 +1,123 @@
-#!/bin/bash
-DOMAIN=$2
-SUB=$1
-ID=`aws route53 list-hosted-zones-by-name --dns-name $DOMAIN --max-items 1 --profile gci | grep "\"Id\"" | awk '{print $2}' | sed 's/\"\/hostedzone\///g'| sed 's/\",//g'`
+#!/usr/bin/python
+# This script attempts to create a connection script to ssh to a host on the
+# load balancer handling connections for the given dns record (domain name)
+# Author: Chad Kouse
+# Date: April 7 2020
 
-aws route53 list-resource-record-sets --hosted-zone-id $ID --query "ResourceRecordSets[?Name == '$SUB.$DOMAIN.']" --profile gci
+import boto3
+import subprocess
+import sys
+from shutil import which
+
+din = sys.argv[1]
+print (din)
+url_split = din.split(".")[::-1]
+suffix = url_split[0:2][::-1]
+prefix = url_split[2:][::-1]
+prefix = ".".join(prefix)
+domain = ".".join(suffix)
+
+session = boto3.Session(profile_name='gci')
+
+dnsclient = session.client(
+        'route53',
+        region_name='us-east-1'
+        )
+
+zone = dnsclient.list_hosted_zones_by_name(
+        DNSName=domain,
+        MaxItems="1"
+        )
+
+hostedZoneId = zone["HostedZones"][0]["Id"]
+
+for rset in dnsclient.list_resource_record_sets(
+        HostedZoneId=hostedZoneId,
+        StartRecordName=din
+        )["ResourceRecordSets"]:
+    if rset["Name"] == (din + "."):
+        DNSData = rset["AliasTarget"]["DNSName"].split(".")
+
+DNSData.pop(0)
+DNSRegion = DNSData[-5]
+print(DNSRegion)
+DNSName = ".".join(DNSData[:len(DNSData)-5]).split("-")
+DNSName = "-".join(DNSName[:len(DNSName)-1])
+
+elbclient = session.client(
+        'elbv2',
+        region_name = DNSRegion
+        )
+
+LoadBalancers = elbclient.describe_load_balancers(
+    Names=[DNSName]
+    )
+loadBalancerArn = LoadBalancers["LoadBalancers"][0]["LoadBalancerArn"]
+
+Listeners = elbclient.describe_listeners(
+        LoadBalancerArn=loadBalancerArn
+        )
+instanceIds = []
+for listener in Listeners["Listeners"]:
+    port = listener["Port"]
+    for action in listener["DefaultActions"]:
+        if "TargetGroupArn" in action :
+            targetGroup = elbclient.describe_target_health(
+                    TargetGroupArn=action["TargetGroupArn"]
+                    )
+        else:
+            targetGroup = elbclient.describe_target_health(
+                    TargetGroupArn=action["ForwardConfig"]
+                        ["TargetGroups"][0]["TargetGroupArn"]
+                    )
+        instanceId = targetGroup["TargetHealthDescriptions"][0]["Target"]["Id"]
+        if instanceIds.count(instanceId) <= 0:
+            instanceIds.append(instanceId)
+
+ec2 = session.client(
+        'ec2',
+        region_name = DNSRegion
+        )
+connections = []
+for instance in ec2.describe_instances(
+        InstanceIds=instanceIds)["Reservations"][0]["Instances"]:
+    vpc = ec2.describe_vpcs(VpcIds=[instance["VpcId"]])
+    instanceKeyName = instance["KeyName"]
+    instanceIp = instance["PrivateIpAddress"]
+    for tag in vpc["Vpcs"][0]["Tags"]:
+        if tag["Key"] == "Name":
+            print("VPC Name:",tag["Value"])
+    for nat in ec2.describe_instances(
+        Filters = [
+            {
+                'Name' : 'vpc-id',
+                'Values' : [instance["VpcId"]]
+            },
+        ])["Reservations"][0]["Instances"]:
+            for v in nat["Tags"]:
+                if v["Key"] == 'Name':
+                    if "nat" in v["Value"].lower():
+                        print("Possible NAT box:", v["Value"],
+                                nat["PublicDnsName"])
+                        natDnsName = nat["PublicDnsName"]
+                        connections.append(
+                                "ssh -o IdentitiesOnly=yes -o "
+                                "ForwardAgent=yes -i "
+                                "~/src/github.com/giftcardimpressions"
+                                "/scripts/aws_server_keys/" +
+                                instanceKeyName + ".pem -J ec2-user@" +
+                                natDnsName + " ec2-user@" +
+                                instanceIp)
+    print("KeyName:",instance["KeyName"])
+    print("Instance Ip:", instance["PrivateIpAddress"])
+
+connections = "\n".join(connections)
+
+if which("dmenu") is not None \
+    and which("dmenucommandrunner") is not None \
+    and which("xdotool") is not None:
+    subprocess.call('echo ' + connections + ' | dmenucommandrunner &',
+        shell=True
+        )
+else:
+    print(connections)

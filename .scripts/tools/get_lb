@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# This script attempts to create a connection script to ssh to a host on the
+# This script attempts to create a connection string to ssh to a host on the
 # load balancer handling connections for the given dns record (domain name)
 # Author: Chad Kouse
 # Date: April 7 2020

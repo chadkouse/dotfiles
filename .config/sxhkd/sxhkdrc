@@ -7,6 +7,10 @@ super + r
 	$TERMINAL -e $FILE
 super + A
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+super + P
+        passmenu
+super + p
+        passmenu --type
 super + w
 	$BROWSER
 super + M

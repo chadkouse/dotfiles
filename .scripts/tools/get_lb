@@ -31,6 +31,7 @@ zone = dnsclient.list_hosted_zones_by_name(
 
 hostedZoneId = zone["HostedZones"][0]["Id"]
 
+DNSData = None
 for rset in dnsclient.list_resource_record_sets(
         HostedZoneId=hostedZoneId,
         StartRecordName=din
@@ -38,9 +39,20 @@ for rset in dnsclient.list_resource_record_sets(
     if rset["Name"] == (din + "."):
         DNSData = rset["AliasTarget"]["DNSName"].split(".")
 
+if DNSData is None:
+    print("Did not find exact hostname match, trying wildcard")
+    # try wildcard
+    din_wildcard = "\\052." + domain
+
+    for rset in dnsclient.list_resource_record_sets(
+            HostedZoneId=hostedZoneId
+            )["ResourceRecordSets"]:
+        if rset["Name"] == (din_wildcard + "."):
+            print("**** FOUND Wildcard record", din_wildcard)
+            DNSData = rset["AliasTarget"]["DNSName"].split(".")
+
 DNSData.pop(0)
 DNSRegion = DNSData[-5]
-print(DNSRegion)
 DNSName = ".".join(DNSData[:len(DNSData)-5]).split("-")
 DNSName = "-".join(DNSName[:len(DNSName)-1])
 
@@ -49,11 +61,23 @@ elbclient = session.client(
         region_name = DNSRegion
         )
 
-LoadBalancers = elbclient.describe_load_balancers(
-    Names=[DNSName]
-    )
-loadBalancerArn = LoadBalancers["LoadBalancers"][0]["LoadBalancerArn"]
+print("Searching for load balancers named", DNSName)
+try:
+    LoadBalancers = elbclient.describe_load_balancers(
+        Names=[DNSName]
+        )
+    loadBalancerArn = LoadBalancers["LoadBalancers"][0]["LoadBalancerArn"]
+except:
+    print("couldn't find the", DNSName, "load balancers, trying a slow search")
+    LoadBalancers = elbclient.describe_load_balancers(
+        )
+    for lb in LoadBalancers["LoadBalancers"]:
+        if lb["LoadBalancerName"].lower() == DNSName.lower():
+            print("found", lb["LoadBalancerName"])
+            loadBalancerArn = lb["LoadBalancerArn"]
 
+
+print("Found load balancer ARN", loadBalancerArn)
 Listeners = elbclient.describe_listeners(
         LoadBalancerArn=loadBalancerArn
         )
@@ -109,45 +133,48 @@ for instanceId in instanceIds:
         for tag in vpc["Vpcs"][0]["Tags"]:
             if tag["Key"] == "Name":
                 vpcName = tag["Value"]
-        for nat in ec2.describe_instances(
+        for nats in ec2.describe_instances(
             Filters = [
                 {
                     'Name' : 'vpc-id',
                     'Values' : [instance["VpcId"]]
                 },
-            ])["Reservations"][0]["Instances"]:
-                for v in nat["Tags"]:
-                    if v["Key"] == 'Name':
-                        if "nat" in v["Value"].lower():
-                            natDnsName = nat["PublicDnsName"]
-                            data = {
-                                'weight' : weight,
-                                'conn' : \
-                                "ssh -o IdentitiesOnly=yes -o "
-                                "ForwardAgent=yes -i "
-                                "~/src/github.com/giftcardimpressions"
-                                "/scripts/aws_server_keys/" +
-                                instanceKeyName + ".pem -J ec2-user@" +
-                                natDnsName + " ec2-user@" +
-                                instanceIp
-                            }
-                            if connections.count(data) <= 0:
-                                connections.append(data)
-                                print("")
-                                print("Possible NAT box:", v["Value"],
-                                        nat["PublicDnsName"])
-                                print("VPC Name:", vpcName)
-                                print("Weight:", weight)
-                                print("KeyName:",instance["KeyName"])
-                                print("Instance Ip:", 
-                                        instance["PrivateIpAddress"])
-                                print("--------------------------------------")
-                                print("")
+                ])["Reservations"]:# [0]["Instances"]:
+                for nat in nats["Instances"]:
+                    if "Tags" in nat:
+                        for v in nat["Tags"]:
+                            if v["Key"] == 'Name':
+                                if "nat" in v["Value"].lower():
+                                    natDnsName = nat["PublicDnsName"]
+                                    data = {
+                                        'name' : v["Value"],
+                                        'weight' : weight,
+                                        'conn' : \
+                                        "ssh -o IdentitiesOnly=yes -o "
+                                        "ForwardAgent=yes -i "
+                                        "~/src/github.com/giftcardimpressions"
+                                        "/scripts/aws_server_keys/" +
+                                        instanceKeyName + ".pem -J ec2-user@" +
+                                        natDnsName + " ec2-user@" +
+                                        instanceIp
+                                    }
+                                    if connections.count(data) <= 0:
+                                        connections.append(data)
+                                        print("")
+                                        print("Possible NAT box:", v["Value"],
+                                                nat["PublicDnsName"])
+                                        print("VPC Name:", vpcName)
+                                        print("Weight:", weight)
+                                        print("KeyName:",instance["KeyName"])
+                                        print("Instance Ip:", 
+                                                instance["PrivateIpAddress"])
+                                        print("--------------------------------------")
+                                        print("")
 
 connections.sort(key=lambda x: x["weight"], reverse=True)
 connectionStrings = []
 for connection in connections:
-    connectionStrings.append("Weight " + str(connection["weight"]) + ": " + connection["conn"])
+    connectionStrings.append("via " + connection["name"] + " Weight " + str(connection["weight"]) + ": " + connection["conn"])
 connectionStrings = "\n".join(connectionStrings)
 
 if which("dmenu") is not None \

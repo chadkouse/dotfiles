@@ -1,5 +1,5 @@
 #!/bin/sh
 # SNIP=`pass snippets| dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n'`
 SNIP=`cat /dev/stdin | dmenu -i -p 'Connect?' -l 10`
-SNIP=`echo $SNIP | sed 's/Weight [0-9]*: //'`
+SNIP=`echo $SNIP | sed 's/.*Weight [0-9]*: //'`
 xdotool type --delay 1 "$SNIP"

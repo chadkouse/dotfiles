@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 
 call plug#begin('~/.vim/plugged')
-Plug 'zxqfl/tabnine-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'beautify-web/js-beautify'
@@ -12,24 +12,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'digitaltoad/vim-pug'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
-Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
-
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -42,15 +33,13 @@ endif
 
 set tags+=./.git/tags
 
+" show a $ when changing word
+set cpoptions+=$
+
 set termguicolors
 
 " Use 4 spaces instead of tabs
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-" use login shell instead of interactive shell
-if executable('zsh')
-set shell=/usr/bin/zsh\ -l
-endif
 
 set mmp=5000
 set redrawtime=10000
@@ -63,10 +52,13 @@ set background=dark
 
 " gitgutter
 let g:gitgutter_use_location_list=1
-set updatetime=100
+set updatetime=300
 
 " ale support in airline
 let g:airline#extensions#ale#enabled = 1
+
+" startify
+let g:startify_change_to_vcs_root=1
 
 " ale remapping
 nmap <silent> <C-e> <Plug>(ale_previous_wrap)
@@ -101,7 +93,7 @@ set smartcase
 set wrap!
 
 " show cursor line
-set cursorline
+set nocursorline
 " highlight CursorLine term=bold cterm=bold
 
 " show color column at 80 chars
@@ -109,3 +101,8 @@ set cursorline
 set colorcolumn=80
 
 hi Normal ctermbg=NONE guibg=NONE
+
+" NERDTree
+let g:NERDTreeWinSize=60
+
+so ~/.colemak/coc

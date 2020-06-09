@@ -15,12 +15,16 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
-Plug 'gko/vim-coloresque'
+" Plug 'gko/vim-coloresque'
+" Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+Plug 'StanAngeloff/php.vim'
+Plug 'rayburgemeestre/phpfolding.vim'
+Plug '2072/PHP-Indenting-for-VIm'
 
 call plug#end()
 
@@ -49,6 +53,7 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_invert_selection = '0'
 set background=dark
+let g:airline_theme='luna'
 
 " gitgutter
 let g:gitgutter_use_location_list=1
@@ -56,6 +61,7 @@ set updatetime=300
 
 " ale support in airline
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " startify
 let g:startify_change_to_vcs_root=1
@@ -92,7 +98,7 @@ set smartcase
 " turn off line wrapping
 set wrap!
 
-" show cursor line
+" don't show cursor line
 set nocursorline
 " highlight CursorLine term=bold cterm=bold
 

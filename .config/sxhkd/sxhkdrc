@@ -15,12 +15,16 @@ super + w
 	$BROWSER
 super + M
 	$TERMINAL -e ncmpcpp
+super + S
+	$TERMINAL -e open_scratch_notes
 alt + semicolon
 	dmenupwmanager
 alt + space
 	rofi -combi-modi window,drun -show combi
 super + c
 	show_cams
+super + equal
+        = --
 
 #make sxhkd reload it's config
 super + Escape
@@ -153,7 +157,7 @@ super + {comma,period}
 super + shift + less
 	lmc replay
 # Increase volume
-super + {equal,plus}
+super + {plus}
 	lmc up {5,15}
 # Decrease volume
 super {_,shift +} + minus

@@ -18,10 +18,14 @@ settings:
         i: move-to-next-char
         n: move-to-next-line
       normal:
+        <Back>: back-or-close
         <Ctrl+Shift+l>: spawn --userscript qute-pass
+        <Ctrl+Shift+u>: tab-move -
+        <Ctrl+Shift+y>: tab-move +
         <Ctrl+u>: tab-prev
         <Ctrl+y>: tab-next
         E: scroll-page 0 -0.5
+        H: back-or-close
         I: forward
         J: null
         K: search-prev
@@ -119,3 +123,7 @@ settings:
     global: '{audio}{index}: {current_title}{private}'
   tabs.title.format_pinned:
     global: '{index}'
+  url.searchengines:
+    global:
+      DEFAULT: https://duckduckgo.com/?q={}
+      g: https://google.com/search?q={}

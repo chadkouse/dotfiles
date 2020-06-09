@@ -7,10 +7,12 @@ noremap e <up>
 noremap k n
 noremap K N
 
+
 noremap <C-h> <C-o>
 noremap <C-o> :FZF<CR>
 inoremap <C-o> <C-o>:FZF<CR>
-noremap <C-f> :Tags<CR>
+noremap <C-f> :RG<CR>
+noremap <C-s> :BLines<CR>
 inoremap <C-f> <C-o>:Tags<CR>
 
 " undotree

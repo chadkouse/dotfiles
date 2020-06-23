@@ -1,3 +1,8 @@
 #!/bin/sh
+
+case $BLOCK_BUTTON in
+    3) $TERMINAL move_audio ;;
+esac
+
 s=`mpc status | sed '/^volume:/d' | tr '\n' ' '`
 echo $s

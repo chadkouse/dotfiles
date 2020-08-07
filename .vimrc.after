@@ -9,7 +9,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'digitaltoad/vim-pug'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -22,8 +22,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
-Plug 'StanAngeloff/php.vim'
-Plug 'rayburgemeestre/phpfolding.vim'
+" Plug 'StanAngeloff/php.vim'
+" Plug 'rayburgemeestre/phpfolding.vim'
 Plug '2072/PHP-Indenting-for-VIm'
 
 call plug#end()
@@ -42,8 +42,13 @@ set cpoptions+=$
 
 set termguicolors
 
+" Don't fix end of file newlines
+set nofixendofline
+
 " Use 4 spaces instead of tabs
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+set foldmethod=manual
 
 set mmp=5000
 set redrawtime=10000

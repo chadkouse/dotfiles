@@ -8,6 +8,8 @@ config_version: 2
 settings:
   auto_save.session:
     global: true
+  backend:
+    global: webengine
   bindings.commands:
     global:
       caret:
@@ -18,6 +20,8 @@ settings:
         i: move-to-next-char
         n: move-to-next-line
       normal:
+        ',M': hint links spawn mpv {hint-url}
+        ',m': spawn mpv {url}
         <Back>: back-or-close
         <Ctrl+Shift+l>: spawn --userscript qute-pass
         <Ctrl+Shift+u>: tab-move -
@@ -34,7 +38,6 @@ settings:
         j: null
         k: search-next
         n: scroll down
-        wi: inspector
   colors.statusbar.command.private.bg:
     global: darkslategray
   colors.statusbar.command.private.fg:
@@ -87,6 +90,9 @@ settings:
     https://teams.microsoft.com: true
   content.geolocation:
     https://www.golfadvisor.com: false
+    https://www.google.com: true
+  content.javascript.can_access_clipboard:
+    global: true
   content.media_capture:
     https://teams.microsoft.com: true
   content.notifications:
@@ -119,6 +125,8 @@ settings:
     global: true
   tabs.position:
     global: top
+  tabs.select_on_remove:
+    global: prev
   tabs.title.format:
     global: '{audio}{index}: {current_title}{private}'
   tabs.title.format_pinned:

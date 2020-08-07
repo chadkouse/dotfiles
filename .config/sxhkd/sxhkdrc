@@ -98,23 +98,23 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; playerctl pause; slock; xset dpms force off; xset r rate 200 50;
+	mpc pause; slock; xset dpms force off; xset r rate 200 50;
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
 	lmc mute
 XF86AudioLowerVolume
-	pamixer -d 5; pkill -RTMIN+15 dwmblocks
+	lmc down 5
 shift+XF86AudioLowerVolume
-	pamixer -d 10; pkill -RTMIN+15 dwmblocks
+	lmc down 10
 control+XF86AudioLowerVolume
-	pamixer -d 1; pkill -RTMIN+15 dwmblocks
+	lmc down 1
 XF86AudioRaiseVolume
-	pamixer -i 5; pkill -RTMIN+15 dwmblocks
+	lmc up 5
 shift+XF86AudioRaiseVolume
-	pamixer -i 10; pkill -RTMIN+15 dwmblocks
+	lmc up 10
 control+XF86AudioRaiseVolume
-	pamixer -i 1; pkill -RTMIN+15 dwmblocks
+	lmc up 1
 XF86AudioNext
 	lmc next
 XF86AudioPlay
@@ -124,22 +124,14 @@ XF86AudioPrev
 XF86AudioStop
 	lmc toggle
 XF86MonBrightnessDown
-        brightnessctl set 10%-
-	# xbacklight -dec 15
+	xbacklight -dec 15
 XF86MonBrightnessUp
-        brightnessctl set +10%
-	# xbacklight -inc 15
-super + alt + ctrl + J
-        playerctl previous; pkill -RTMIN+11 dwmblocks
-super + alt + ctrl + L
-        playerctl play-pause; pkill -RTMIN+11 dwmblocks
-super + alt + ctrl + U
-        playerctl next; pkill -RTMIN+11 dwmblocks
-super + alt + ctrl + P
+	xbacklight -inc 15
+super + Scroll_Lock
 	mpc toggle; pkill -RTMIN+11 dwmblocks
-super + alt + ctrl + B
+super + shift + Print
 	mpc seek -30; pkill -RTMIN+11 dwmblocks
-super + alt + ctrl + F
+super + shift + Pause
 	mpc seek +30; pkill -RTMIN+11 dwmblocks
 super + Print
 	mpc prev
@@ -170,10 +162,10 @@ super + shift + less
 	lmc replay
 # Increase volume
 super + {plus}
-	pamixer -i {5,15}
+	lmc up {5,15}
 # Decrease volume
 super {_,shift +} + minus
-	pamixer -d {5,15}
+	lmc down {5,15}
 # Seek foward in song
 super + {_,shift +} bracketright
 	lmc forward {10,120}

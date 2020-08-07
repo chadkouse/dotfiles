@@ -98,7 +98,7 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; pauseallmpv; slock; xset dpms force off; xset r rate 200 50;
+	mpc pause; slock; xset dpms force off; xset r rate 200 50;
 XF86Launch1
 	xset dpms force off
 XF86AudioMute

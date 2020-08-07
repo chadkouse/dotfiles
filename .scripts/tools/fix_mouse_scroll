@@ -1,5 +1,5 @@
-xinput set-prop 14 'Evdev Scrolling Distance' -1 1 1
-xinput set-prop 18 'Evdev Scrolling Distance' -1 1 1
-xinput set-prop 15 'Evdev Scrolling Distance' -1 1 1
-xinput set-prop 16 'Evdev Scrolling Distance' -1 1 1
+# xinput set-prop 14 'Evdev Scrolling Distance' -1 1 1
+# xinput set-prop 18 'Evdev Scrolling Distance' -1 1 1
+# xinput set-prop 15 'Evdev Scrolling Distance' -1 1 1
+# xinput set-prop 16 'Evdev Scrolling Distance' -1 1 1
 

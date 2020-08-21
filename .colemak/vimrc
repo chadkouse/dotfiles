@@ -7,6 +7,9 @@ noremap e <up>
 noremap k n
 noremap K N
 
+" searching / moving
+nnoremap <tab> %
+vnoremap <tab> %
 
 noremap <C-h> <C-o>
 noremap <C-o> :FZF<CR>

@@ -1,1 +1,1 @@
-/home/chadkouse/.vimrc
+/Users/chadkouse/.vimrc

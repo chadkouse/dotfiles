@@ -19,6 +19,9 @@ settings:
         e: move-to-prev-line
         i: move-to-next-char
         n: move-to-next-line
+      insert:
+        <Ctrl+y>: tab-next
+        <Ctrl+u>: tab-prev
       normal:
         ',M': hint links spawn mpv {hint-url}
         ',m': spawn mpv {url}
@@ -94,6 +97,8 @@ settings:
   content.javascript.can_access_clipboard:
     global: true
   content.media_capture:
+    https://app.gotomeeting.com: true
+    https://meet.google.com: true
     https://teams.microsoft.com: true
   content.notifications:
     https://calendar.google.com: true
@@ -121,6 +126,10 @@ settings:
     - normal {line}G{column0}l
   hints.chars:
     global: arstdhneio
+  qt.highdpi:
+    global: false
+  qt.low_end_device_mode:
+    global: auto
   tabs.background:
     global: true
   tabs.position:

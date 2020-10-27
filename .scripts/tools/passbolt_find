@@ -1,0 +1,32 @@
+#!/bin/sh
+SEARCH=$1
+IFS_BAK=${IFS}
+IFS="
+"
+targets=($(passbolt find | grep "$SEARCH" | awk -F "\n" '{print $1}'))
+IFS=${IFS_BAK}
+length=${#targets[@]}
+
+use=0
+if [ $length -gt 1 ]
+then
+    for (( i=0; i<$length; i++)); do
+        x=`expr $i + 1`
+        echo "$x: ${targets[$i]}" | cut -d$'\t' -f1
+    done
+    read -p "Choice? " use
+    use=`expr $use - 1`
+else
+    echo "Found: ${targets[0]}"
+fi
+if [ $use -ge $length ]
+then
+    exit
+fi
+
+
+UUID=`echo ${targets[$use]} | awk '{print $NF}'`
+PW=`echo $(passbolt get $UUID | gpg -q --no-tty 2>/dev/null)`
+echo $PW
+echo -n $PW | xsel -b
+echo "Copied to clipboard"

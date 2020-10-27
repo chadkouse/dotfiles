@@ -1,0 +1,8 @@
+#!/bin/sh
+
+COUNT=`ps aux | grep openfortivpn | grep marxent | grep sudo | wc -l`
+
+if [ "$COUNT" -eq "1" ]; then
+    echo "[VPN - Marxent]";
+    exit;
+fi

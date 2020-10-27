@@ -86,17 +86,25 @@ settings:
     global: darkgrey
   colors.tabs.selected.odd.fg:
     global: black
+  completion.height:
+    global: 30%
   content.desktop_capture:
     https://teams.microsoft.com: true
   content.geolocation:
     https://www.golfadvisor.com: false
     https://www.google.com: true
+  content.host_blocking.enabled:
+    global: false
   content.javascript.can_access_clipboard:
     global: true
   content.media_capture:
+    https://app.gotomeeting.com: true
+    https://meet.google.com: true
     https://teams.microsoft.com: true
   content.notifications:
     https://calendar.google.com: true
+    https://mail.google.com: true
+    https://meet.google.com: true
     https://messages.google.com: true
     https://teams.microsoft.com: true
     https://web.whatsapp.com: true

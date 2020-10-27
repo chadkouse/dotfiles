@@ -1,0 +1,15 @@
+{
+    "tabnine.experimentalAutoImports": true,
+    "yaml.schemas": {
+        "file:///home/chadkouse/.vscode-oss/extensions/atlassian.atlascode-2.8.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "files.autoSave": "onFocusChange",
+    "workbench.statusBar.visible": true
+}

@@ -35,6 +35,9 @@ nnoremap <silent> <M-C-H> :exe "vertical resize -5"<CR>
 nnoremap <silent> <M-C-E> :exe "resize -5"<CR>
 nnoremap <silent> <M-C-N> :exe "resize +5"<CR>
 
+" format json
+nmap =j :%!python -m json.tool<CR>
+
 "" NERDTree
 nnoremap <silent> <Leader><Leader> :NERDTreeToggle<CR>
 let NERDTreeMapOpenExpl='E'

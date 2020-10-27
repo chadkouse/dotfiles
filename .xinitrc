@@ -39,7 +39,7 @@ fi
 sxhkd &
 
 # set keyboard repeat delay / rate
-xset r rate 200 35
+xset r rate 200 45
 
 # exec i3
 exec dwm

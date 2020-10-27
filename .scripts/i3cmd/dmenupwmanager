@@ -1,6 +1,6 @@
 #!/bin/sh
 # SNIP=`pass snippets| dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n'`
-SNIP=`cat ~/.snippets| dmenu -i -p 'Inject which snippet?' -l 10 | tr -d '\n' | sed 's/.*://'`
+SNIP=`cat ~/.snippets| dmenu -i -p 'Inject which snippet?' -l 10 | tr -d '\n' | perl -pe 's|.*?:||'`
 SNIP=`echo $SNIP | tr -d '\n'`
 xdotool type --delay 1 "$SNIP"
 

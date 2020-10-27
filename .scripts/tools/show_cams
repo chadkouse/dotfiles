@@ -1,8 +1,16 @@
 #!/bin/bash
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.44:554 &
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.31:554 &
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.40:554 &
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.54:554 &
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.67:554 &
-vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.68:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.44:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.31:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.40:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.54:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.67:554 &
+# vlc -I dummy --no-video-deco --no-embedded-video rtsp://appagent:streaming@10.0.1.68:554 &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_01_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_02_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_03_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_04_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_05_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_06_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_07_main &
+vlc -I dummy --no-video-deco --no-embedded-video rtsp://admin:cheddar526@10.0.1.25:554/h264Preview_08_main &
 

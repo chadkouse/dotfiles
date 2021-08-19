@@ -1,8 +1,6 @@
 #!/bin/sh
 # Sets the background. If given an argument, will set file as background.
-# /usr/bin/feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
-# selected=`sed '2q;d' ~/.fehbg | awk '{print $4}' | sed "s/'//g"`
-selected=/home/chadkouse/Downloads/leo_baseball_wallpaper.jpg
-/usr/bin/feh --bg-fill ${selected}
+/usr/bin/feh --randomize --bg-fill /usr/share/wallpapers/chromecast1200/*
+selected=`sed '2q;d' ~/.fehbg | awk '{print $4}' | sed "s/'//g"`
 echo $selected
-wal -a 92 -i $selected
+wal -i $selected

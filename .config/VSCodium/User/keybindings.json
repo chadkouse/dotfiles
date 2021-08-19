@@ -46,7 +46,17 @@
     {
         "key": "\\ \\",
         "command": "workbench.action.toggleSidebarVisibility",
+        "when": "editorTextFocus && neovim.mode != 'insert' && vim.mode != 'Insert' && explorerViewletVisible"
+    },
+    {
+        "key": "\\ \\",
+        "command": "workbench.action.toggleSidebarVisibility",
         "when": "!editorTextFocus && explorerViewletVisible"
+    },
+    {
+        "key": "\\ \\",
+        "command": "workbench.view.explorer",
+        "when": "!explorerViewletVisible"
     },
     {
         "key": "ctrl+shift+t",

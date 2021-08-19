@@ -19,17 +19,12 @@
         "when": "remoteFileDialogVisible"
     },
     {
-        "key": "ctrl+y",
+        "key": "ctrl+alt+y",
         "command": "workbench.action.nextEditor"
     },
     {
         "key": "ctrl+pagedown",
         "command": "-workbench.action.nextEditor"
-    },
-    {
-        "key": "ctrl+y",
-        "command": "-vscode-neovim.ctrl-y",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+r y",
@@ -41,7 +36,7 @@
         "command": "-redo"
     },
     {
-        "key": "ctrl+u",
+        "key": "ctrl+alt+u",
         "command": "workbench.action.previousEditor"
     },
     {
@@ -49,39 +44,19 @@
         "command": "-workbench.action.previousEditor"
     },
     {
-        "key": "ctrl+u",
-        "command": "-cursorUndo",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-deleteAllLeft",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert && !neovim.recording && neovim.mode == 'insert'"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-vscode-neovim.ctrl-u",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-vscode-neovim.delete-all-cmdline",
-        "when": "neovim.mode == 'cmdline_normal'"
-    },
-    {
-        "key": "ctrl+u",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.recording && neovim.mode == 'insert'"
+        "key": "\\ \\",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "editorTextFocus && neovim.mode != 'insert' && vim.mode != 'Insert' && explorerViewletVisible"
     },
     {
         "key": "\\ \\",
         "command": "workbench.action.toggleSidebarVisibility",
-        "when": "editorTextFocus && neovim.mode != 'insert'"
+        "when": "!editorTextFocus && explorerViewletVisible"
     },
     {
         "key": "\\ \\",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!editorTextFocus"
+        "command": "workbench.view.explorer",
+        "when": "!explorerViewletVisible"
     },
     {
         "key": "ctrl+shift+t",
@@ -96,33 +71,111 @@
         "command": "-actions.find"
     },
     {
-        "key": "ctrl+f",
-        "command": "-vscode-neovim.ctrl-f",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+        "key": "ctrl+u",
+        "command": "workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+f",
-        "command": "-notebook.find",
-        "when": "notebookEditorFocused"
+        "key": "ctrl+y",
+        "command": "workbench.action.navigateForward"
     },
     {
-        "key": "ctrl+w",
-        "command": "-vscode-neovim.delete-word-left-cmdline",
-        "when": "neovim.mode == 'cmdline_normal'"
+        "key": "ctrl+]",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
-        "key": "ctrl+w",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+        "key": "shift+alt+m",
+        "command": "workbench.actions.view.problems"
     },
     {
-        "key": "ctrl+w",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.recording && neovim.mode == 'insert'"
+        "key": "ctrl+shift+m",
+        "command": "-workbench.actions.view.problems"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.view.explorer",
+        "when": "editorTextFocus && explorerViewletVisible"
+    },
+    {
+        "key": "alt+i",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "alt+e",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+n",
+        "command": "terminal.focus",
+        "when": "editorTextFocus"
     },
     {
         "key": "ctrl+w",
         "command": "-workbench.action.closeWindow",
         "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-extension.vim_ctrl+w",
+        "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "-workbench.action.quickInputBack",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-notebook.cell.split",
+        "when": "editorTextFocus && inputFocus && notebookEditorFocused && notebookViewType == 'jupyter-notebook'"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "-editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "-extension.vim_ctrl+]",
+        "when": "editorTextFocus && vim.active && vim.use<C-]> && !inDebugRepl"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols"
+    },
+    {
+        "key": "f12",
+        "command": "-goToNextReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-extension.vim_ctrl+b",
+        "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-extension.vim_ctrl+k",
+        "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
     }
 ]

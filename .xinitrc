@@ -44,3 +44,4 @@ xset r rate 200 45
 # exec i3
 exec dwm
 # exec bspwm
+# exec xterm

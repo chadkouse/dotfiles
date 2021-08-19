@@ -1,0 +1,7 @@
+#!/bin/bash
+slop=$(slop -f "%x %y %w %h %g %i") || exit 1
+read -r X Y W H G ID < <(echo $slop)
+suffix=$(date +%s)
+# ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y ~/screenshots/screencast_$suffix.avi
+ffmpeg -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -c:v libx264 -preset slow -crf 22 -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" -profile:v main -pix_fmt yuv420p -level 3.0 -movflags +faststart -c:a libfdk_aac -b:a 128k ~/screenshots/screencast_$suffix.mp4
+

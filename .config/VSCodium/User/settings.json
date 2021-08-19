@@ -1,7 +1,7 @@
 {
     "tabnine.experimentalAutoImports": true,
     "yaml.schemas": {
-        "file:///home/chadkouse/.vscode-oss/extensions/atlassian.atlascode-2.8.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+        "file:///home/chadkouse/.vscode-oss/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     },
     "files.exclude": {
         "**/.classpath": true,
@@ -11,5 +11,52 @@
     },
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "files.autoSave": "onFocusChange",
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.scrollBeyondLastLine": false,
+    "python.showStartPage": false,
+    "atlascode.jira.jqlList": [
+        {
+            "id": "b7c245ea-00ed-45bc-acd2-7a7693667ad7",
+            "enabled": true,
+            "name": "My marxent Issues",
+            "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+            "siteId": "920e04d7-9049-43a8-8543-d00e939873f0",
+            "monitor": true
+        }
+    ],
+    "editor.fontSize": 12,
+    "terminal.external.linuxExec": "st",
+    "terminal.integrated.fontSize": 12,
+    "autoHide.autoHideSideBar": false,
+    "autoHide.hideOnOpen": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.lineNumbers": "relative",
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "fzf-quick-open.initialWorkingDirectory": "${workspaceFolder}",
+    "editor.fontFamily": "Fira Code, 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "vim.leader": ",",
+    "vim.easymotion": true,
+    "vim.enableNeovim": true,
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before" : ["n"], "after": ["j"] },
+        { "before" : ["e"], "after": ["k"] },
+        { "before" : ["space"], "after": ["l"] },
+        { "before" : ["k"], "after": ["n"] },
+        { "before" : ["K"], "after": ["N"] }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before" : ["n"], "after": ["j"] },
+        { "before" : ["e"], "after": ["k"] },
+        { "before" : ["space"], "after": ["l"] },
+        { "before" : ["k"], "after": ["n"] },
+        { "before" : ["K"], "after": ["N"] }
+    ],
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.easymotionKeys": "arstdhneioqwfpluy;gjzxcvbkm",
+    "sync.gist": "3d64b8cab02a16453fea15eb78a73f18",
+    "redhat.telemetry.enabled": true
 }

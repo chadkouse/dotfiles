@@ -8,6 +8,7 @@
 .config/mpd/log
 .config/mpd/pid
 .config/mpd/sticker.sql
+.vscode
 
 #ctags
 tags

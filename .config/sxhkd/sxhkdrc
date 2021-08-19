@@ -98,7 +98,7 @@ super + shift + x
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + x
-	mpc pause; slock; xset dpms force off; xset r rate 200 50;
+	mpc pause; playerctl pause; slock; xset dpms force off; xset r rate 200 50;
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
@@ -127,6 +127,12 @@ XF86MonBrightnessDown
 	xbacklight -dec 15
 XF86MonBrightnessUp
 	xbacklight -inc 15
+super + alt + ctrl + J
+        playerctl previous; pkill -RTMIN+11 dwmblocks
+super + alt + ctrl + L
+        playerctl play-pause; pkill -RTMIN+11 dwmblocks
+super + alt + ctrl + U
+        playerctl next; pkill -RTMIN+11 dwmblocks
 super + alt + ctrl + P
 	mpc toggle; pkill -RTMIN+11 dwmblocks
 super + alt + ctrl + B

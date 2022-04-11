@@ -1,0 +1,35 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    3) $TERMINAL move_audio ;;
+esac
+
+name=`mpc current`
+banner=`mpc status | sed '/^volume:/d' | tr '\n' ' '`
+suffix=${banner/$name/}
+
+sec=`date +%S`
+foo=`printf %.0f $(echo "($sec/60)*100" | bc -l)`
+
+# banner=`mpc current`
+namelen=${#name}
+suffixlen=${#suffix}
+# step=`echo "(($bannerlen-60)/60)*$sec" | bc`
+length=30
+step=`printf %.0f $(echo "((($namelen-$length)/60)*$sec)*2" | bc -l)`
+if [ $step -gt 50 ]
+then
+    step=0
+else
+    step=0
+fi
+prefix=`echo "$name" | awk -v l=$length -v s=$step '{print substr($0, s, l)}'`
+echo "🎙 $prefix$suffix"
+
+# Submodule path 'eslint-config-marxent': checked out '2a1d679d4d43beb0e0ef80368b333ea7d2b72a69'
+# + echo email=support@marxent.com
+# + echo always-auth=true
+# + echo registry=https://nexus.3dcloud.io/repository/npm-group/
+# + echo _auth=SmVua2luczpEWno3UTN1Z2daSDw+YShY
+# + '[' false == true ']'
+# + npm install

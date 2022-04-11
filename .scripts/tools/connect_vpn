@@ -1,3 +1,4 @@
 #!/bin/bash
 sudo openfortivpn vpn.marxent.io:9443 --username=Chad --trusted-cert 5a99afe44c7db3676a00319bdf634c389c581b753a577fa77a874b6553e2a983
 pkill -RTMIN+16 dwmblocks
+notify-send "Marxent VPN Connected"

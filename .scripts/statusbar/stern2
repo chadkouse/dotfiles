@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    3) $TERMINAL move_audio ;;
+esac
+
+banner=`mpc current`
+pstatus=""
+state=$(mpc --format "" | grep -i pause)
+if [ $? -eq 0 ]
+then
+    pstatus="Paused"
+fi
+pstatuslen=${#pstatus}
+length=`expr 57 - $pstatuslen`
+if [ "$pstatus" == "Paused" ]
+then
+    pstatus=" [$pstatus]"
+else
+    pstatus=""
+    length=60
+fi
+
+prefix=`echo "🎙  $banner" | awk -v l=$length '{print substr($0, 0, l)}'`
+echo $prefix$pstatus

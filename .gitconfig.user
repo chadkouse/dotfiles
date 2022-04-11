@@ -9,3 +9,8 @@
 	email = chad.kouse@gmail.com
 [commit]
 	gpgsign = true
+[tag]
+        gpgsign = true
+
+[includeIf "gitdir:~/src/bitbucket.org/marxent/"]
+    path = ~/src/bitbucket.org/marxent/.gitconfig

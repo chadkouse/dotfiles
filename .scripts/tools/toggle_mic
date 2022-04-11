@@ -1,0 +1,12 @@
+#!/bin/bash
+amixer set 'Mic',0 toggle
+pkill -RTMIN+17 dwmblocks
+
+amixer get 'Mic',0 | grep -q '\[on\]'
+MIC_OFF=$?
+
+if [[ "$MIC_OFF" -eq 1 ]]; then
+    notify-send "MIC OFF"
+else
+    notify-send "MIC ON"
+fi

@@ -6,3 +6,4 @@ if [ "$COUNT" -eq "1" ]; then
     echo "[VPN - Marxent]";
     exit;
 fi
+echo "[No VPN]"

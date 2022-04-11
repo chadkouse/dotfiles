@@ -1,7 +1,7 @@
 {
     "tabnine.experimentalAutoImports": true,
     "yaml.schemas": {
-        "file:///home/chadkouse/.vscode-oss/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+        "file:///home/chadkouse/.vscode-oss/extensions/atlassian.atlascode-2.10.11/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
     },
     "files.exclude": {
         "**/.classpath": true,
@@ -29,6 +29,7 @@
     "editor.fontSize": 12,
     "terminal.external.linuxExec": "st",
     "terminal.integrated.fontSize": 12,
+    "terminal.integrated.scrollback": 10000,
     "autoHide.autoHideSideBar": false,
     "autoHide.hideOnOpen": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
@@ -40,23 +41,57 @@
     "editor.fontLigatures": true,
     "vim.leader": ",",
     "vim.easymotion": true,
-    "vim.enableNeovim": true,
+    "vim.enableNeovim": false,
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before" : ["n"], "after": ["j"] },
         { "before" : ["e"], "after": ["k"] },
         { "before" : ["space"], "after": ["l"] },
-        { "before" : ["k"], "after": ["n"] },
-        { "before" : ["K"], "after": ["N"] }
+        { "before" : ["k"], "after": ["n", "z", "z"] },
+        { "before" : ["K"], "after": ["N", "z", "z"] }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         { "before" : ["n"], "after": ["j"] },
         { "before" : ["e"], "after": ["k"] },
         { "before" : ["space"], "after": ["l"] },
-        { "before" : ["k"], "after": ["n"] },
-        { "before" : ["K"], "after": ["N"] }
+        { "before" : ["k"], "after": ["n", "z", "z"] },
+        { "before" : ["K"], "after": ["N", "z", "z"] }
     ],
     "vim.neovimPath": "/usr/bin/nvim",
     "vim.easymotionKeys": "arstdhneioqwfpluy;gjzxcvbkm",
     "sync.gist": "3d64b8cab02a16453fea15eb78a73f18",
-    "redhat.telemetry.enabled": true
+    "sonarlint.connectedMode.connections.sonarqube": [
+        {
+            "serverUrl": "http://34.71.16.126:9000",
+            "token": "40a61cb4f00930e4eb980678341ad612a006d0ef"
+        }
+    ],
+    "redhat.telemetry.enabled": true,
+    "[python]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.rulers": [
+
+            {"column": 100, "color": "#5a5a5a40"}  // extra right rule
+        ], 
+    },
+    "python.linting.pylintArgs": [
+        "--generated-members",
+        "requests"
+    ],
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/chadkouse/.vscode-oss/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "/home/chadkouse/.jabba/jdk/adopt-openj9@1.8.0-292",
+            "default": true
+        },
+        {
+            "name": "JavaSE-11",
+            "path": "/home/chadkouse/.jabba/jdk/openjdk@1.11.0/"
+        },
+
+
+    ],
+    "markdown-preview-enhanced.liveUpdate": true,
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.iconTheme": "material-icon-theme"
 }

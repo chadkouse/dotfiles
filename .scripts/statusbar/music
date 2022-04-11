@@ -5,23 +5,23 @@ case $BLOCK_BUTTON in
 esac
 
 # s=`mpc status | sed '/^volume:/d' | tr '\n' ' '`
-player=`playerctl metadata | head -n 1 | awk '{print $1}'`
-if [ "$player" == "vlc" ]
+player=`playerctl -s metadata | head -n 1 | awk '{print $1}'`
+if [ "$player" == "vlc" ] || [ "$player" == "" ]
 then
     echo " "
     exit
 fi
-banner=`playerctl metadata --format "{{ artist }} - {{ title }}"`
+banner=`playerctl -s metadata --format "{{ artist }} - {{ title }}"`
 pstatus=`playerctl status`
 pstatuslen=${#pstatus}
-length=`expr 57 - $pstatuslen`
+length=`expr 47 - $pstatuslen`
 if [ "$pstatus" == "Playing" ] || [ "$pstatus" == "Stopped" ] || [ "$pstatus" == "No players found" ]
 then
     pstatus=""
-    length=60
+    length=50
 else
     pstatus=" [$pstatus]"
 fi
 
-prefix=`echo "$banner" | awk -v l=$length '{print substr($0, 0, l)}'`
+prefix=`echo "🎵 $banner" | awk -v l=$length '{print substr($0, 0, l)}'`
 echo $prefix$pstatus

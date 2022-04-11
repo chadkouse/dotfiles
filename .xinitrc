@@ -41,6 +41,18 @@ sxhkd &
 # set keyboard repeat delay / rate
 xset r rate 200 45
 
+if [ -x /usr/bin/gcalcli ]; then
+  while true; do
+    /usr/bin/gcalcli remind
+    sleep 300
+  done &
+fi
+
+xrandr --output DisplayPort-0 --auto --left-of HDMI-A-0
+xrandr --output HDMI-A-0 --auto --rotate right
+
+sleep 10 && clipmenud&
+
 # exec i3
 exec dwm
 # exec bspwm

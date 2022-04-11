@@ -143,6 +143,10 @@ super + Print
 	mpc prev
 super + Pause
 	mpc next
+# toggle microphone
+super + alt + ctrl + M
+        toggle_mic
+
 
 
 # Recording

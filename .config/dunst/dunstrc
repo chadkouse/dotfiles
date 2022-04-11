@@ -51,6 +51,7 @@
     icon_position = left
     max_icon_size = 40
     #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/256x256/status/
+    icon_path = /usr/share/icons/Paper/16x16/status/
     sticky_history = no
     history_length = 20
     dmenu = /usr/bin/dmenu -p dunst:
@@ -90,4 +91,4 @@
     background = "#cc2421"
     foreground = "#ebdbb2"
     frame_color = "#fabd2f"
-    timeout = 10
+    timeout = 1500

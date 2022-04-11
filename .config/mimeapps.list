@@ -1,27 +1,6 @@
 
 [Default Applications]
-application/vnd.debian.binary-package=com.github.donadigo.eddy.desktop
-application/x-bittorrent=org.kde.ktorrent.desktop;
-application/x-extension-htm=google-chrome.desktop
-application/x-extension-html=google-chrome.desktop
-application/x-extension-shtml=google-chrome.desktop
-application/x-extension-xht=google-chrome.desktop
-application/x-extension-xhtml=google-chrome.desktop
-application/xhtml+xml=google-chrome.desktop
-text/html=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/chrome=google-chrome.desktop
-x-scheme-handler/ftp=google-chrome.desktop
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
-x-scheme-handler/slack=slack.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-x-scheme-handler/vscode=code-url-handler.desktop
-audio/x-vorbis+ogg=vlc.desktop
-inode/directory=Thunar-folder-handler.desktop
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/webcal=brave-browser.desktop
-x-scheme-handler/sidequest=SideQuest.desktop
-
-[Removed Associations]

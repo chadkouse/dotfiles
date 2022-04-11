@@ -1,8 +1,9 @@
 #!/bin/sh
 
-MIC_OFF="$(pamixer --default-source --get-mute)"
+amixer get 'Mic',0 | grep -q '\[on\]'
+MIC_OFF=$?
 
-if [[ "$MIC_OFF" = "true" ]]; then
+if [[ "$MIC_OFF" -eq 1 ]]; then
     echo "🚫"
 else
     echo "🎤"

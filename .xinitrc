@@ -51,14 +51,8 @@ if [ -x /usr/bin/gcalcli ]; then
   done &
 fi
 
-# xrandr --output DisplayPort-0 --auto --left-of HDMI-A-0
-# xrandr --output HDMI-A-0 --auto --rotate right
-# xrandr --output DP-0.1 --left-of eDP-1-1 --auto
-# autorandr -c
-# autorandr --load mobile --force
-
-# setxkbmap us -variant colemak
-# setxkbmap -option caps:swapescape
+xrandr --output DisplayPort-0 --auto --left-of HDMI-A-0
+xrandr --output HDMI-A-0 --auto --rotate right
 
 sleep 10 && clipmenud&
 

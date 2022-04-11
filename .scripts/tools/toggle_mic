@@ -1,9 +1,8 @@
 #!/bin/bash
-# amixer set 'Capture',0 toggle
-mute_mic
+amixer set 'Mic',0 toggle
 pkill -RTMIN+17 dwmblocks
 
-amixer get 'Capture',0 | grep -q '\[on\]'
+amixer get 'Mic',0 | grep -q '\[on\]'
 MIC_OFF=$?
 
 if [[ "$MIC_OFF" -eq 1 ]]; then

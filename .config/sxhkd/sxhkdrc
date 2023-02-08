@@ -104,17 +104,17 @@ XF86Launch1
 XF86AudioMute
 	lmc mute
 XF86AudioLowerVolume
-	lmc down 5
+	pamixer -d 5; pkill -RTMIN+15 dwmblocks
 shift+XF86AudioLowerVolume
-	lmc down 10
+	pamixer -d 10; pkill -RTMIN+15 dwmblocks
 control+XF86AudioLowerVolume
-	lmc down 1
+	pamixer -d 1; pkill -RTMIN+15 dwmblocks
 XF86AudioRaiseVolume
-	lmc up 5
+	pamixer -i 5; pkill -RTMIN+15 dwmblocks
 shift+XF86AudioRaiseVolume
-	lmc up 10
+	pamixer -i 10; pkill -RTMIN+15 dwmblocks
 control+XF86AudioRaiseVolume
-	lmc up 1
+	pamixer -i 1; pkill -RTMIN+15 dwmblocks
 XF86AudioNext
 	lmc next
 XF86AudioPlay
@@ -124,9 +124,11 @@ XF86AudioPrev
 XF86AudioStop
 	lmc toggle
 XF86MonBrightnessDown
-	xbacklight -dec 15
+        brightnessctl set 10%-
+	# xbacklight -dec 15
 XF86MonBrightnessUp
-	xbacklight -inc 15
+        brightnessctl set +10%
+	# xbacklight -inc 15
 super + alt + ctrl + J
         playerctl previous; pkill -RTMIN+11 dwmblocks
 super + alt + ctrl + L
@@ -168,10 +170,10 @@ super + shift + less
 	lmc replay
 # Increase volume
 super + {plus}
-	lmc up {5,15}
+	pamixer -i {5,15}
 # Decrease volume
 super {_,shift +} + minus
-	lmc down {5,15}
+	pamixer -d {5,15}
 # Seek foward in song
 super + {_,shift +} bracketright
 	lmc forward {10,120}

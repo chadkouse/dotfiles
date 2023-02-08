@@ -20,13 +20,14 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'gko/vim-coloresque'
 " Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 " Plug 'StanAngeloff/php.vim'
 " Plug 'rayburgemeestre/phpfolding.vim'
 Plug '2072/PHP-Indenting-for-VIm'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 

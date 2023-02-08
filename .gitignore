@@ -8,6 +8,9 @@
 .config/mpd/log
 .config/mpd/pid
 .config/mpd/sticker.sql
+.config/qutebrowser/bookmarks
+.config/qutebrowser/quickmarks
+.config/qutebrowser/autoconfig.yml
 .vscode
 
 #ctags

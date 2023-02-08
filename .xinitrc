@@ -8,6 +8,9 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 export XDG_CONFIG_HOME=$HOME/.config
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -48,8 +51,14 @@ if [ -x /usr/bin/gcalcli ]; then
   done &
 fi
 
-xrandr --output DisplayPort-0 --auto --left-of HDMI-A-0
-xrandr --output HDMI-A-0 --auto --rotate right
+# xrandr --output DisplayPort-0 --auto --left-of HDMI-A-0
+# xrandr --output HDMI-A-0 --auto --rotate right
+# xrandr --output DP-0.1 --left-of eDP-1-1 --auto
+# autorandr -c
+# autorandr --load mobile --force
+
+# setxkbmap us -variant colemak
+# setxkbmap -option caps:swapescape
 
 sleep 10 && clipmenud&
 
